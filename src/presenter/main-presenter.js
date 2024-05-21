@@ -55,10 +55,16 @@ export default class MainPresenter {
   }
 
   #renderBoard() {
-    if (this.#boardPoints.every((ownPoint) => ownPoint.isArchive)) {
-      render(new ListEmpty(), this.#mainPage.element);
-      return;
+    // if (this.#boardPoints.every((ownPoint) => ownPoint != true)) {
+    //   render(new ListEmpty(), this.#mainPage);
+    //   // return;
+    // }
+
+    if (this.#boardPoints.length === 0) {
+      render(new ListEmpty(), this.#mainPage);
     }
+
+    // render(new ListEmpty(), this.#mainPage);
 
     render(new TripSort(), this.#mainPage, RenderPosition.AFTERBEGIN);
     render(this.#eventListComponent, this.#mainPage);
