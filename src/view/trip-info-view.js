@@ -12,26 +12,26 @@ const createTripInfoTemplate = (pointModel) => {
 
   const viewTotalTripDate = () => `${startTripDate} - ${finishTripDate}`;
 
-  const baseTotalPrise = points.reduce((acc, price) => acc + price.basePrice, 0);
+  // const baseTotalPrise = points.reduce((acc, price) => acc + price.basePrice, 0);
+  //
+  // const offersData = offers.map((offer) => offer.offers).flat();
+  //
+  // const offersPriceId = points.map((point) => point.offers).flat();
 
-  const offersData = offers.map((offer) => offer.offers).flat();
+  // const createOffersPrice = () => {
+  //   const priceList = [];
+  //   for(let i = 0; i < offersPriceId.length; i++) {
+  //     for(let j = 0; j < offersData.length; j++) {
+  //       if(offersPriceId[i] === offersData[j].id) {
+  //         priceList.push(offersData[j].price);
+  //       }
+  //     }
+  //   } return priceList;
+  // };
 
-  const offersPriceId = points.map((point) => point.offers).flat();
+  // const totalOffersPrice = createOffersPrice().reduce((acc, price) => acc + price, 0);
 
-  const createOffersPrice = () => {
-    const priceList = [];
-    for(let i = 0; i < offersPriceId.length; i++) {
-      for(let j = 0; j < offersData.length; j++) {
-        if(offersPriceId[i] === offersData[j].id) {
-          priceList.push(offersData[j].price);
-        }
-      }
-    } return priceList;
-  };
-
-  const totalOffersPrice = createOffersPrice().reduce((acc, price) => acc + price, 0);
-
-  const totalPrice = totalOffersPrice + baseTotalPrise;
+  // const totalPrice = totalOffersPrice + baseTotalPrise;
 
   const tripDestinationId = sortDefaultByDay(points).map((elem) => elem.destination);
 
@@ -63,7 +63,7 @@ const createTripInfoTemplate = (pointModel) => {
     </div>
 
     <p class="trip-info__cost">
-      Total: &euro;&nbsp;<span class="trip-info__cost-value">${totalPrice}</span>
+      Total: &euro;&nbsp;<span class="trip-info__cost-value"></span>
     </p>
   </section>`);
 };

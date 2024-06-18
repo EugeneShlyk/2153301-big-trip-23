@@ -2,7 +2,6 @@ import { humanizeTaskDueDateForm, capitalizeFirstLetter } from '../utils/task.js
 import AbstractStatefulView from '../framework/view/abstract-stateful-view.js';
 import flatpickr from 'flatpickr';
 import he from 'he';
-
 import 'flatpickr/dist/flatpickr.min.css';
 
 const createTripEditFormTemplate = ({ point, destinations, offers, eventTypes }) => {
@@ -193,7 +192,8 @@ export default class TripEditView extends AbstractStatefulView {
       .addEventListener('change', this.#onTypeHandler);
     this.element.querySelector('.event__input--destination')
       .addEventListener('change', this.#onDestinationHandler);
-    this.element.addEventListener('change', this.#onOffersChange);
+    this.element.querySelector('.event__section')
+      .addEventListener('change', this.#onOffersChange)
     this.element.querySelector('.event__reset-btn')
       .addEventListener('click', this.#formDeleteClickHandler);
     this.element.querySelector('.event__input--price')
@@ -238,7 +238,7 @@ export default class TripEditView extends AbstractStatefulView {
       const currentOffersId = currentOffers.map((elem) => elem.id);
       const preset = `event-offer-${this._state.type}-`;
       const currentOffer = evt.target.getAttribute('name').replace(preset, '');
-      if (!state.includes(currentOffer)) {
+      if(!state.includes(currentOffer)) {
         const pushState = [...currentOffersId].filter((elem) => elem === currentOffer).join(' ');
         state.push(pushState);
         return state;
