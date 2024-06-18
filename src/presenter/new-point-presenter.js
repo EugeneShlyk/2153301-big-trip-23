@@ -100,5 +100,5 @@ export default class NewPointPresenter {
   // }
 
 
- }
+}
 

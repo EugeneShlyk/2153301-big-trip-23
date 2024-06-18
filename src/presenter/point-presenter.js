@@ -49,8 +49,6 @@ export default class PointPresenter {
       eventTypes: this.#eventTypes,
       onDeleteClick: this.#handleDeleteClick,
     });
-    // console.log(this.#point);
-    // console.log(this.#offers);
 
     if (prevPointComponent === null || prevEditComponent === null) {
       render(this.#pointComponent, this.#pointListContainer);
@@ -110,13 +108,7 @@ export default class PointPresenter {
       UpdateType.MINOR,
       point
     );
-
-    this.#replaceEditToPoint();
   };
-
-  // #calculateOffers(allOffers, type) {
-  //   const offersType = allOffers.filter((item))
-  // }
 
   #onCloseButtonClick = () => {
     this.#editComponent.reset(this.#point);
