@@ -52,7 +52,7 @@ export default class PointModel extends Observable {
       this.#points[index] = updatedPoint;
       // this.#points = [
       //   ...this.#points.slice(0, index),
-      //   updatedPoint,
+      //   update,
       //   ...this.#points.slice(index + 1)
       // ];
       this._notify(updateType, updatedPoint);
@@ -100,6 +100,7 @@ export default class PointModel extends Observable {
   set offers(offers) {
     this.#offers = offers;
   }
+
 
   set points(points) {
     this.#points = points;

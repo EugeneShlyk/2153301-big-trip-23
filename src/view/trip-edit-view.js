@@ -186,6 +186,8 @@ export default class TripEditView extends AbstractStatefulView {
     this.element.addEventListener('submit', this.#onFormSubmit);
     this.element.querySelector('.event__rollup-btn')
       .addEventListener('click', this.#onFormCancel);
+    this.element.querySelector('.event__reset-btn')
+      .addEventListener('click', this.#onFormCancel);
     this.element.querySelector('.event__type-group')
       .addEventListener('change', this.#onTypeHandler);
     this.element.querySelector('.event__input--destination')
